@@ -1,40 +1,41 @@
-# AWS ETL Data Pipeline using Python, S3, EC2 and RDS PostgreSQL
+# AWS ETL Data Pipeline using Python, S3, EC2, and RDS PostgreSQL
 
-Developed by: Samiksha P  
-Sri Manakula Vinayagar Engineering College, Puducherry  
-
----
-
-## Project Overview
-
-This project demonstrates a complete ETL (Extract, Transform, Load) data pipeline built on AWS Cloud.  
-The main goal is to extract data from an S3 bucket, perform basic transformations using Python and Pandas on an EC2 instance, and then load the cleaned data into an Amazon RDS PostgreSQL database.
-
-The project helped me understand how AWS services like S3, EC2, RDS, and IAM can be combined together to automate data handling and transformation in a real-time cloud environment.
+**Developed by:** Samiksha P  
+**Institution:** Sri Manakula Vinayagar Engineering College, Puducherry  
 
 ---
 
-## AWS Services Used
+## 💡 Project Overview
 
-1. **Amazon S3** – To store input data files (e.g., data.csv)
-2. **Amazon EC2** – To host and run the Python ETL script
-3. **Amazon RDS (PostgreSQL)** – To store the processed and transformed data
-4. **IAM** – To securely manage AWS access keys and permissions
-5. **Security Groups** – To control inbound and outbound network access
+This project demonstrates a complete **ETL (Extract, Transform, Load)** data pipeline built on **AWS Cloud**.  
+The goal is to extract data from an Amazon **S3 bucket**, transform it using **Python and Pandas** on an **EC2 instance**, and then load the cleaned data into an **Amazon RDS (PostgreSQL)** database.
 
----
-
-## How It Works
-
-1. Upload the raw CSV file to an S3 bucket (example: `etl-data-bucket-samiksha`).
-2. The EC2 instance connects to S3 using `boto3` and downloads the file.
-3. The Python script transforms the data (e.g., converts height from inches to centimeters).
-4. The transformed data is then uploaded into a PostgreSQL table on Amazon RDS.
-5. The process completes with confirmation messages for each stage.
+This project helped me understand how different AWS services work together to automate data movement and transformation in a real-world cloud environment.
 
 ---
 
-## Technologies Used
+## ☁️ AWS Services Used
+
+1. **Amazon S3** – Stores the raw input data files (e.g., `data.csv`)
+2. **Amazon EC2** – Hosts and runs the Python ETL script
+3. **Amazon RDS (PostgreSQL)** – Stores the processed and transformed data
+4. **IAM** – Manages secure AWS access permissions
+5. **Security Groups** – Controls inbound and outbound traffic between AWS components
+
+---
+
+## ⚙️ How the ETL Pipeline Works
+
+1. Upload the input CSV file to an **S3 bucket** (e.g., `etl-data-bucket-samiksha`).
+2. Launch an **EC2 instance** and connect via SSH.
+3. Run the **Python ETL script** on EC2 – it connects to S3 using **Boto3** and downloads the data.
+4. The data is cleaned or transformed (for example, converting height from inches to centimeters).
+5. The transformed data is inserted into an **RDS PostgreSQL** database using **Psycopg2**.
+6. The console displays messages after every successful step.
+
+---
+
+## 🧰 Technologies and Tools Used
 
 - Python 3  
 - Pandas  
@@ -43,70 +44,100 @@ The project helped me understand how AWS services like S3, EC2, RDS, and IAM can
 - AWS EC2  
 - AWS S3  
 - AWS RDS (PostgreSQL)  
-- Ubuntu 24.04 (as EC2 instance OS)
+- Ubuntu 24.04 LTS  
 
 ---
 
-## Folder Structure
+## 📂 Folder Structure
 
-AWS_ETL_Pipeline  
-│  
-├── etl_script.py (Main ETL Python script)  
-├── requirements.txt (Dependencies file)  
-├── data.csv (Sample dataset)  
-└── README.md (Project documentation)
+AWS_ETL_Pipeline/
+│
+├── etl_script.py # Main ETL Python script
+├── requirements.txt # Python dependencies
+├── README.md # Documentation file
+└── screenshot/ # Project screenshots
+├── Ec2_output.png
+├── S3-bucket.png
+└── rds-instance.png
 
----
-
-## Example Input (data.csv)
-
-name,height_in  
-Alice,60  
-Bob,70  
-Charlie,65  
 
 ---
 
-## Example Console Output
+## 🧾 Example Input (data.csv)
 
-Extracting data from S3...  
-Data extracted successfully.  
-Transforming data...  
-Data transformed successfully.  
-Loading data into PostgreSQL...  
-Data loaded successfully.  
+name,height_in
+Alice,60
+Bob,70
+Charlie,65
+
 
 ---
 
-## What I Learned
+## 🖥️ Example Console Output
+
+📥 Extracting data from S3...
+✅ Data extracted successfully!
+🔧 Transforming data...
+✅ Data transformed successfully!
+📤 Loading data into PostgreSQL...
+✅ Data loaded successfully!
+
+yaml
+Copy code
+
+---
+
+
+---
+
+## 🎓 What I Learned
 
 Through this project, I learned how to:
-- Connect EC2, S3, and RDS seamlessly in a single workflow  
-- Use IAM credentials and security groups securely  
-- Perform data transformation using Pandas  
-- Load transformed data into PostgreSQL using Psycopg2  
-- Manage cloud resources and troubleshoot access or connection issues  
+- Integrate **EC2, S3, and RDS** for end-to-end data workflows  
+- Use **IAM roles and security groups** safely  
+- Handle data transformation using **Pandas**  
+- Connect and load data into **PostgreSQL** using **Psycopg2**  
+- Manage and troubleshoot AWS services effectively  
 
-This project gave me a clear understanding of how ETL pipelines operate in cloud-based environments.
-
----
-
-## Future Improvements
-
-- Automate the ETL process using AWS Lambda and EventBridge  
-- Add error handling and logging using AWS CloudWatch  
-- Perform complex transformations on larger datasets  
-- Build a small monitoring dashboard for data updates  
+This project strengthened my understanding of **data engineering** on the **AWS cloud**.
 
 ---
 
-## About
+## 🚀 Future Enhancements
 
-This project was part of my academic cloud and AI implementation tasks,  
-focusing on integrating data and machine learning readiness within cloud services.
-
-GitHub Repository: [https://github.com/Sampraveeen](https://github.com/Sampraveeen)
+- Automate ETL execution using **AWS Lambda** and **EventBridge**  
+- Add monitoring and error logging via **AWS CloudWatch**  
+- Scale pipeline for large datasets  
+- Create a dashboard for data visualization and reporting  
 
 ---
 
-*This repository was created purely for learning and demonstration purposes.*
+## 📸 Project Screenshots
+
+| Step | Description | Screenshot |
+|------|--------------|-------------|
+| 1️⃣ | **EC2 Instance Running ETL Script Successfully** | ![EC2 Output](./screenshot/Ec2_output.png) |
+| 2️⃣ | **S3 Bucket with Uploaded Data File (data.csv)** | ![S3 Bucket](./screenshot/S3-bucket.png) |
+| 3️⃣ | **RDS PostgreSQL Database Connection (Endpoint Visible)** | ![RDS Instance](./screenshot/rds-instance.png) |
+
+---
+
+## 🌐 Repository Overview
+
+This repository contains an **AWS-based ETL data pipeline** built using **Python, S3, EC2, and PostgreSQL (RDS)**.  
+It demonstrates how to integrate multiple AWS services to automate data extraction, transformation, and loading into a database.
+
+**GitHub Repository:** [https://github.com/Sampraveeen/aws-etl-pipeline](https://github.com/Sampraveeen/aws-etl-pipeline)
+
+---
+
+## 🧠 About This Project
+
+This project was developed as part of my **academic cloud and AI practicals**, focusing on integrating cloud-based data workflows and preparing datasets for **AI-driven analytics**.
+
+It represents a key step in understanding how cloud data pipelines work in real-world systems.
+
+---
+
+*This repository was created purely for educational and demonstration purposes.*  
+*© 2025 Samiksha P*
